@@ -37,3 +37,7 @@ AI usage declaration:
 
 I’ve used Ai, it has helped to understand which language to use and helped me understand CSS , JAVASCRIPTS/NODE and HTML concepts.
 I want to be clear: the code was written word for word by me personally, and the design choices were totally mine.
+
+
+This is a desktop app, not a web app , you can download and try it from the Release link here:
+https://github.com/emanuelaportella09-hub/LOCK-IN/releases/tag/lockin
