@@ -14,14 +14,14 @@ Features:
   Add/remove items from the list at any time
   Persistent storage : the list is saved and stays even after closing and reopening the app
 
--Detection and blocking
+Detection and blocking
 
     Automatically monitors the active window/application every few seconds
     Fullscreen "LOCK IN" overlay appears when a blocked site or app is detected
     High-contrast outlined text, readable on any background (light or dark)
     Click-through overlay — doesn't block interaction with other windows, it only serves as a visual reminder
 
--Timer
+Timer
 
     "With timer" or "without timer" mode, chosen by the user
     Customizable timer (hours:minutes:seconds) with quick presets (+30 min, +1h, +2h)
