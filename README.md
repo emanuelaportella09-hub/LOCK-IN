@@ -23,11 +23,11 @@ Features:
 
 -Timer
 
-  "With timer" or "without timer" mode, chosen by the user
-  Customizable timer (hours:minutes:seconds) with quick presets (+30 min, +1h, +2h)
-  Countdown visible in a small always-on-top widget in the top-right corner of the screen
-  "Session completed" screen once the set time runs out
-  Timer settings (mode and duration) are saved and remembered between sessions
+    "With timer" or "without timer" mode, chosen by the user
+    Customizable timer (hours:minutes:seconds) with quick presets (+30 min, +1h, +2h)
+    Countdown visible in a small always-on-top widget in the top-right corner of the screen
+    "Session completed" screen once the set time runs out
+    Timer settings (mode and duration) are saved and remembered between sessions
 
 -Distribution
 
