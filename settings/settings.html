@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        .top-bar{
+        padding: 10px 10px 0px 10px;
+        }
+        .arrow-icon{
+            height: 60px;
+            width: auto;
+        }
+        .content-wrapper{
+            padding: 10px 40px 40px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        body{
+            font-family: "Tahoma";
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 48px;
+            letter-spacing: 4px;
+            margin-top: 0;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+        }
+        .timer-wrapper {
+            width: 360px;
+            display: flex;
+            flex-direction: column;
+        }
+        .tabs-container{
+            display: flex;
+            gap: 6px;
+            padding-left: 16px;
+            margin-top: -2px;
+            z-index: 2;
+            position: relative;
+        }
+        .tab-btn{
+            border: 2px solid #000000;
+            border-bottom: none;
+            padding: 8px 16px;
+            font-size:13px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.2 ease;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .tab-btn.active{
+            background-color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+            margin-bottom: -2px;
+            color: #000000;
+        }
+        .timer-card{
+            background-color: #ffffff;
+            width: 100%;
+            padding: 28px;
+            border: 2px solid #000000;
+            border-radius: 16px 16px 16px 16px;
+            box-shadow: 6px 6px 0px #000000;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+        .timer-content{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            transition: opacity 0.3s ease;
+        }
+        .timer-content.disabled{
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        .time-display-cointainer{
+            border-bottom: 2px solid #000000;
+            margin-bottom: 20px ;
+            padding-bottom: 4px;
+            width: 100%;
+        }
+        .time-input{
+            background: transparent;
+            border: none;
+            color: #000000;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            outline: none;
+            letter-spacing: 2px;
+        }
+        .preset-buttons{
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .preset-btn{
+            flex: 1;
+            background-color: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
+            padding: 8px 0;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor:pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .preset-btn:hover{
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <button id="backBtn"><img src ="../images/arrow.jpg" class = "arrow-icon"></button>
+    </div>
+    <div class="content-wrapper">
+        <h1>SETTINGS</h1>
+        <div class="timer-wrapper">
+            <div class="tabs-container">
+                <button class="tab-btn active" id="tabTimer" onclick="setTimerMode(true)">TIMER</button>
+                <button class="tab-btn" id="tabNoTimer" onclick="setTimerMode(false)">WITHOUT TIMER</button>
+            </div>
+            <div class="timer-card">
+                <div class="timer-content" id="timerContent">
+                    <div class="time-display-cointainer">
+                        <input type="text" id="timeInput" class="time-input" value="00:05:00" placeholder="00:00:00">
+                    </div>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="addSeconds(1800)">+30:00</button>
+                        <button class="preset-btn" onclick="addSeconds(3600)">+1:00:00</button>
+                        <button class="preset-btn" onclick="addSeconds(7200)">+2:00:00</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src ="settings-renderer.js"></script>
+</body>
+</html>

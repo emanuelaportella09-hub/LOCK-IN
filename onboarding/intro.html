@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCK IN</title>
+    <style>
+        .middle-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }   
+        .Paragraph{
+                font-size : 2vw;
+                font-family: "Aptos Serif";
+                color: rgb(0, 0, 0);
+                -webkit-user-select: none;
+        }
+        h1 {    margin: 0;
+                font-size : 13vw;
+                font-family: "Impact";
+                color: rgb(0, 0, 0);
+                -webkit-user-select: none;
+            }
+        h1 img{
+            border: none;
+            display: inline;
+            width: auto;
+            height: 10vw;
+            position: absolute;
+            left: 100%;
+            margin-left: 2vw;
+            top: 20%;
+        }
+        .buttonrow{
+            
+            display:flex;
+            flex-direction: row;
+            gap: 10px;
+            
+            
+        }
+        button{
+            border-radius:  10px;
+            font-family: "Arial Black";
+            font-size: 2vw;
+            padding: 15px 30px;
+            background-color: rgb(182, 177, 177);
+            border-color: darkgray;
+         
+        }
+        body{
+            overflow: hidden;
+        }
+        .title-wrapper{
+            position: relative;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="middle-section">
+        <div class="title-wrapper">
+            <h1>LOCK IN <img src="..\images\cat.gif"></h1>
+        </div>
+                <p class="Paragraph">Stay always focused when you work</p>
+            <div class="buttonrow">
+
+            <button id = "blackListBtn">BLACKLIST</button><button id ="settingBtn">SETTING</button><button id="startBtn">START SESSION</button>
+
+            </div>
+                
+    </div>
+    <script src="onboarding-renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "lock-in",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.emanuela.lockin",
+    "productName": "lock In" ,
+    "npmRebuild": false,
+    "win" : {
+      "target" : "nsis",
+      "icon" : "images/lock.ico"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^43.2.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "active-win": "^8.2.1"
+  }
+}
