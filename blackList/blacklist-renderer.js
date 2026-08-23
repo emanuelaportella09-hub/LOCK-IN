@@ -52,20 +52,17 @@ window.addEventListener('DOMContentLoaded' , () => {
 
 
 
-input.addEventListener('keydown', (e) => {
+input.addEventListener('keydown', async (e) => {
 
     if (e.key == 'Enter'){
         if(input.checkValidity()){
             e.preventDefault()
             const site = document.getElementById('url').value
-            const cleanSite = site
-                .replace('https://' , '')
-                .replace('http://', '')
-                .replace('www.' ,'')
-                .split('.')[0]
-                .split('/')[0]
-                const row = document.createElement('tr')
-                const cell = document.createElement('td')
+
+            const cleanSite = await window.keyrender.CleanUpUrl(site)
+                
+            const row = document.createElement('tr')
+            const cell = document.createElement('td')
         
             window.keyrender.addSite(cleanSite)
             const item = createListItem(cleanSite , () => window.keyrender.removeSite(cleanSite))

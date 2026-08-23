@@ -1,9 +1,10 @@
 
-const { app, BrowserWindow, Menu, ipcMain,screen } = require('electron')
+const { app, BrowserWindow, Menu, ipcMain,screen,dialog } = require('electron')
 const path = require('path')
 const fs = require('fs')
 const activeWin = require('active-win')
 const { time } = require('console')
+const psl = require('psl')
 
 let finestra
 let BlackListWindow
@@ -15,6 +16,8 @@ let blacklist = []
 let blacklist1 = []
 let timerSeconds = 300
 let timerMode = true
+let currentIntervalId = null
+let currentCountdownId = null
 const dataPath = path.join(app.getPath('userData'), 'data.json')
 
 
@@ -76,102 +79,114 @@ ipcMain.on('open-setting', () => {
   finestra.close()
 })
 
-ipcMain.on('start-session' , () =>{
+ipcMain.on('start-session' , async () =>{
 
-
-const intervalId = setInterval(() => {
-
-  activeWin().then((result) => {
-    const isBlocked = blacklist.some(site => result.title.toLowerCase().includes(site))
-    const isBlockedApp = blacklist1.some(app => result.owner.name.toLowerCase().includes(app))
-    const shouldwarn = isBlocked || isBlockedApp
-
-    if ( shouldwarn && Bstate == false) {
-  
-      Bstate = true
-
-
-      warning = new BrowserWindow({
-        transparent : true,
-        frame : false,
-        alwaysOnTop : true,
-        fullscreen : true,
-        skipTaskbar : true,
-
-      })
-
-      warning.loadFile('./warning/overlay.html')
-      warning.setIgnoreMouseEvents(true)
-
-    }
-    else if(!shouldwarn &&   Bstate == true){
-  
-      warning.close()
-      Bstate = false
- 
-    }
-
+  const result = await dialog.showMessageBox({
+    type:'question',
+    buttons:['Start', 'Cancel'],
+    title: 'Start Session',
+    message:'Are you ready to start your focus session?'
   })
+  if (result.response!== 0){
+    return
+  }
+  if(currentIntervalId) clearInterval(currentIntervalId)
+  if(currentCountdownId) clearInterval(currentCountdownId)
 
-}, 2000 )
+  
+  currentIntervalId = setInterval(() => {
 
-if(timerMode){
-  let remaining = timerSeconds
+    activeWin().then((result) => {
+      const isBlocked = blacklist.some(site => result.title.toLowerCase().replace(/\s+/g,'').replace(/-/g, '').includes(site))
+      const isBlockedApp = blacklist1.some(app => result.owner.name.toLowerCase().includes(app))
+      const shouldwarn = isBlocked || isBlockedApp
 
-
-
-  const{ width } = screen.getPrimaryDisplay().workAreaSize
-  const timerDisplay = new BrowserWindow({
-    width: 150,
-    height:60,
-    x: width-160,
-    y: 10,
-    frame: false,
-    alwaysOnTop: true,
-    resizable: false,
-    skipTaskbar: true,
-    webPreferences:{
-      preload: path.join(__dirname, 'timer', 't-preload.js')
-    }
-  })
-
-  timerDisplay.loadFile('./timer/timer-display.html')
-
-  const countdownId = setInterval(() => {
-
-    remaining -=1
-    timerDisplay.webContents.send('update-time', remaining)
-    if (remaining<= 0){
-
-      clearInterval(countdownId)
-
-    }
-  }, 1000)
-  setTimeout(()=>{
-
-    clearInterval(intervalId)
-
-    if(warning && !warning.isDestroyed()){
-      warning.close()
-    } 
-      FinishWindow = new BrowserWindow({
-        transparent : true,
-        frame : false,
-        alwaysOnTop : true,
-        fullscreen : true,
-
-      })
-      
-       FinishWindow.loadFile('./warning/finished-session.html')
-       FinishWindow.setIgnoreMouseEvents(true)
-       setTimeout(() => {
-        FinishWindow.close()
-        timerDisplay.close()
-       }, 3000)
+      if ( shouldwarn && Bstate == false) {
+    
+        Bstate = true
 
 
-  }, timerSeconds *1000)
-}
+        warning = new BrowserWindow({
+          transparent : true,
+          frame : false,
+          alwaysOnTop : true,
+          fullscreen : true,
+          skipTaskbar : true,
+
+        })
+
+        warning.loadFile('./warning/overlay.html')
+        warning.setIgnoreMouseEvents(true)
+
+      }
+      else if(!shouldwarn &&   Bstate == true){
+    
+        warning.close()
+        Bstate = false
+  
+      }
+
+    })
+
+  }, 2000 )
+
+  if(timerMode){
+    let remaining = timerSeconds
+
+
+
+    const{ width } = screen.getPrimaryDisplay().workAreaSize
+    const timerDisplay = new BrowserWindow({
+      width: 150,
+      height:60,
+      x: width-160,
+      y: 10,
+      frame: false,
+      alwaysOnTop: true,
+      resizable: false,
+      skipTaskbar: true,
+      webPreferences:{
+        preload: path.join(__dirname, 'timer', 't-preload.js')
+      }
+    })
+
+    timerDisplay.loadFile('./timer/timer-display.html')
+
+    currentCountdownId = setInterval(() => {
+
+      remaining -=1
+      timerDisplay.webContents.send('update-time', remaining)
+      if (remaining<= 0){
+
+        clearInterval(currentCountdownId)
+
+      }
+    }, 1000)
+    setTimeout(()=>{
+
+      clearInterval(currentIntervalId)
+
+      if(warning && !warning.isDestroyed()){
+        warning.close()
+      } 
+        FinishWindow = new BrowserWindow({
+          transparent : true,
+          frame : false,
+          alwaysOnTop : true,
+          fullscreen : true,
+
+        })
+        
+        FinishWindow.loadFile('./warning/finished-session.html')
+        FinishWindow.setIgnoreMouseEvents(true)
+        setTimeout(() => {
+          FinishWindow.close()
+          timerDisplay.close()
+        }, 3000)
+
+
+    }, timerSeconds *1000)
+  }
 
 })
 
@@ -212,6 +227,15 @@ saveData()
 
 })
 
+
+ipcMain.handle('clean-up-url', (event, url) =>{
+  const parced = psl.parse(url.replace('https://' , '')
+                               .replace('http://', '')
+                               .split('/')[0])
+  console.log(parced.sld)
+  return parced.sld
+
+})
 
 function saveData(){
   const data = {

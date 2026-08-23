@@ -9,11 +9,11 @@
   },
   "build": {
     "appId": "com.emanuela.lockin",
-    "productName": "lock In" ,
+    "productName": "lock In",
     "npmRebuild": false,
-    "win" : {
-      "target" : "nsis",
-      "icon" : "images/lock.ico"
+    "win": {
+      "target": "nsis",
+      "icon": "images/lock.ico"
     }
   },
   "keywords": [],
@@ -25,6 +25,7 @@
     "electron-builder": "^26.15.3"
   },
   "dependencies": {
-    "active-win": "^8.2.1"
+    "active-win": "^8.2.1",
+    "psl": "^1.15.0"
   }
 }

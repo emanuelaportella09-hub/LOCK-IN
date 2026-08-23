@@ -17,6 +17,12 @@
       .top-bar{
         padding: 10px;
       }
+      .column label.sub-label{
+        display: block;
+        font-size: 14px;
+        font-weight: normal;
+        margin-top: 4px;
+      }
       .columns{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -83,7 +89,8 @@
     <div class="column">
       <h2>Sites</h2>
       <form>
-        <label for="url">Enter an https:// URL:</label>
+        <label for="url">Enter an URL:</label>
+        <label class="sub-label">(press the enter key to enter a site)</label>
         <input
             type="url"
             name="url"
@@ -99,6 +106,7 @@
       <h2>Applications</h2>
       <form>
         <label for="app">Write the name of the process:</label>
+        <label class="sub-label">(press the enter key to enter an app)</label>
         <input 
           type="text" 
           id="app"
