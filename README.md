@@ -1,5 +1,5 @@
 # LOCK-IN
-An application that moniters you while you work and if you get distracted it tells you to lock in
+An application that moniters you while you work and if you get distracted it tells you to lock in(Windows tested)
 
 Features:
 
@@ -40,4 +40,6 @@ I want to be clear: the code was written word for word by me personally, and the
 
 
 This is a desktop app, not a web app , you can download and try it from the Release link here:
-https://github.com/emanuelaportella09-hub/LOCK-IN/releases/tag/lockin
+https://github.com/emanuelaportella09-hub/LOCK-IN/releases/tag/lockinfix
+
+
