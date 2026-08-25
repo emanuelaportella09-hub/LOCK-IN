@@ -18,6 +18,8 @@ let timerSeconds = 300
 let timerMode = true
 let currentIntervalId = null
 let currentCountdownId = null
+let currentTimeoutId = null
+let currenttimerDisplay = null
 const dataPath = path.join(app.getPath('userData'), 'data.json')
 
 
@@ -92,8 +94,21 @@ ipcMain.on('start-session' , async () =>{
   }
   if(currentIntervalId) clearInterval(currentIntervalId)
   if(currentCountdownId) clearInterval(currentCountdownId)
+  if(currentTimeoutId) clearTimeout(currentTimeoutId)
+  if(currenttimerDisplay && !currenttimerDisplay.isDestroyed()){
+    currenttimerDisplay.close()
+  }
 
   
+
+  if(warning && !warning.isDestroyed()){
+        warning.close()
+      } 
+  
+
+  Bstate = false
+
+
   currentIntervalId = setInterval(() => {
 
     activeWin().then((result) => {
@@ -128,8 +143,9 @@ ipcMain.on('start-session' , async () =>{
 
       }
       else if(!shouldwarn &&   Bstate == true){
-    
-        warning.close()
+        if(warning && !warning.isDestroyed()){
+          warning.close()
+        }
         Bstate = false
   
       }
@@ -165,20 +181,26 @@ ipcMain.on('start-session' , async () =>{
         preload: path.join(__dirname, 'timer', 't-preload.js')
       }
     })
-
+    currenttimerDisplay = timerDisplay
     timerDisplay.loadFile('./timer/timer-display.html')
 
     currentCountdownId = setInterval(() => {
-
+    
+      
       remaining -=1
-      timerDisplay.webContents.send('update-time', remaining)
+      if(!timerDisplay.isDestroyed()){
+        timerDisplay.webContents.send('update-time', remaining)
+      }
       if (remaining<= 0){
 
         clearInterval(currentCountdownId)
 
       }
     }, 1000)
-    setTimeout(()=>{
+    
+    
+    
+    currentTimeoutId = setTimeout(()=>{
 
       clearInterval(currentIntervalId)
 
@@ -196,11 +218,15 @@ ipcMain.on('start-session' , async () =>{
         FinishWindow.loadFile('./warning/finished-session.html')
         FinishWindow.setIgnoreMouseEvents(true)
         setTimeout(() => {
-          FinishWindow.close()
-          timerDisplay.close()
+          if(FinishWindow && !FinishWindow.isDestroyed()){
+            FinishWindow.close()
+          }
+          if(timerDisplay && !timerDisplay.isDestroyed()){
+            timerDisplay.close()
+          }
         }, 3000)
 
-
+      
     }, timerSeconds *1000)
   }
 
