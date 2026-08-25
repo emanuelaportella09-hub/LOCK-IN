@@ -3,7 +3,7 @@ const { app, BrowserWindow, Menu, ipcMain,screen,dialog } = require('electron')
 const path = require('path')
 const fs = require('fs')
 const activeWin = require('active-win')
-const { time } = require('console')
+const { time, error } = require('console')
 const psl = require('psl')
 
 let finestra
@@ -80,7 +80,7 @@ ipcMain.on('open-setting', () => {
 })
 
 ipcMain.on('start-session' , async () =>{
-
+  
   const result = await dialog.showMessageBox({
     type:'question',
     buttons:['Start', 'Cancel'],
@@ -97,6 +97,12 @@ ipcMain.on('start-session' , async () =>{
   currentIntervalId = setInterval(() => {
 
     activeWin().then((result) => {
+      if(!result){
+        console.log('active-win ha restituito undefined')
+        return
+
+      } 
+
       const isBlocked = blacklist.some(site => result.title.toLowerCase().replace(/\s+/g,'').replace(/-/g, '').includes(site))
       const isBlockedApp = blacklist1.some(app => result.owner.name.toLowerCase().includes(app))
       const shouldwarn = isBlocked || isBlockedApp
@@ -114,7 +120,9 @@ ipcMain.on('start-session' , async () =>{
           skipTaskbar : true,
 
         })
-
+        warning.setIgnoreMouseEvents(true)
+        warning.focus()
+        warning.setAlwaysOnTop(true,'screen-saver')
         warning.loadFile('./warning/overlay.html')
         warning.setIgnoreMouseEvents(true)
 
@@ -125,6 +133,14 @@ ipcMain.on('start-session' , async () =>{
         Bstate = false
   
       }
+
+    }).catch((error) =>{
+      dialog.showMessageBox({
+        type: 'error',
+        title:'Detection Error',
+        message:'Something went wrong while checking active window',
+        detail:error.message
+      })
 
     })
 
