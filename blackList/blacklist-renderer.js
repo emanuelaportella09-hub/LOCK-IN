@@ -58,9 +58,14 @@ input.addEventListener('keydown', async (e) => {
         if(input.checkValidity()){
             e.preventDefault()
             const site = document.getElementById('url').value
-
-            const cleanSite = await window.keyrender.CleanUpUrl(site)
-                
+            try{
+                const cleanSite = await window.keyrender.CleanUpUrl(site)
+                if (!cleanSite){
+                    return
+            }  
+            }
+           
+               
             const row = document.createElement('tr')
             const cell = document.createElement('td')
         
@@ -92,8 +97,12 @@ appInput.addEventListener('keydown', (e)=>{
         if(appInput.checkValidity()){
             e.preventDefault()
             const app = appInput.value
-            const cleanApp = app.replace('.exe','')
-    
+            try{
+                const cleanApp = app.replace('.exe','')
+                if (!cleanApp){
+                    return
+            }  
+            }
             window.keyrender.addApp(cleanApp)
             const item = createListItem(cleanApp , () => window.keyrender.removeApp(cleanApp))
             document.getElementById('appsList').appendChild(item)
