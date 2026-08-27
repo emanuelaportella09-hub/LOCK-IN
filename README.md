@@ -1,4 +1,7 @@
 # LOCK-IN
+Guide video:
+https://www.youtube.com/watch?v=KYm0ztkC648
+
 An application that moniters you while you work and if you get distracted it tells you to lock in(Windows tested)
 
 Features:
