@@ -63,6 +63,9 @@ input.addEventListener('keydown', async (e) => {
                 if (!cleanSite){
                     return
             }  
+            }catch(err){
+                console.log('Errore pulizia URL:', err)
+                return
             }
            
                
@@ -102,6 +105,10 @@ appInput.addEventListener('keydown', (e)=>{
                 if (!cleanApp){
                     return
             }  
+            }
+            catch(err){
+                console.log('Errore pulizia URL:', err)
+                return
             }
             window.keyrender.addApp(cleanApp)
             const item = createListItem(cleanApp , () => window.keyrender.removeApp(cleanApp))
