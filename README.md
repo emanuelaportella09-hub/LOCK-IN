@@ -2,6 +2,8 @@
 Guide video:
 https://www.youtube.com/watch?v=KYm0ztkC648
 
+download only the latest release
+
 An application that moniters you while you work and if you get distracted it tells you to lock in(Windows tested)
 
 Features:
