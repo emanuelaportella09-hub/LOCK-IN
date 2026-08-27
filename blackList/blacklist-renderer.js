@@ -58,8 +58,10 @@ input.addEventListener('keydown', async (e) => {
         if(input.checkValidity()){
             e.preventDefault()
             const site = document.getElementById('url').value
+            
+            let cleanSite
             try{
-                const cleanSite = await window.keyrender.CleanUpUrl(site)
+                cleanSite = await window.keyrender.CleanUpUrl(site)
                 if (!cleanSite){
                     return
             }  
@@ -100,8 +102,9 @@ appInput.addEventListener('keydown', (e)=>{
         if(appInput.checkValidity()){
             e.preventDefault()
             const app = appInput.value
+            let cleanApp
             try{
-                const cleanApp = app.replace('.exe','')
+                 cleanApp = app.replace('.exe','')
                 if (!cleanApp){
                     return
             }  
