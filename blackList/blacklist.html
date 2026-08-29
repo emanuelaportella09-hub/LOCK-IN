@@ -65,6 +65,12 @@
         margin-top: 8px;
         width: 90%;
       }
+      .btn{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
     /*th{
         font-family: "Tahoma";
         font-size: 2vw;
@@ -91,6 +97,7 @@
       <form>
         <label for="url">Enter an URL:</label>
         <label class="sub-label">(press the enter key to enter a site)</label>
+        <div class="btn">
         <input
             type="url"
             name="url"
@@ -99,6 +106,9 @@
             pattern="https://.*"
             size="30"
             required />
+        <button type="button" id="addSiteBtn">Add Site</button>
+        </div>
+        <label for="url">PLEASE DON'T ENTER WEIRD SITES LIKE MY GITHUB PAGE IT WON'T WORK PLEASE TRY SITE LIKE YOUTUBE ,INSTRAGRAM BECAUSE THE APP WAS MEANT FOR THOSE SITES DON'T BRING IT TO IT'S LIMITS AND WATCH MY VIDEO</label>
       </form>
       <div id="sitesList"></div>
     </div>
@@ -107,6 +117,7 @@
       <form>
         <label for="app">Write the name of the process:</label>
         <label class="sub-label">(press the enter key to enter an app)</label>
+        <div class="btn">
         <input 
           type="text" 
           id="app"
@@ -115,6 +126,9 @@
           pattern =".*\.exe"
           size="30"
           required/>
+        <button type="button" id="addAppBtn">Add App</button>
+        </div>
+        <label for="app">IF UNSURE OF THE PROCESS GO TO TASK MANAGER AND SEE THE PROCESS NAME AND WATCH MY VIDEO IS ON MY README PAGE OF THE PROJECT</label>
       </form>
       <div id="appsList"></div>
     </div>

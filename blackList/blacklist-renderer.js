@@ -2,6 +2,60 @@
 const input = document.getElementById('url') 
 const appInput  = document.getElementById('app')
 
+async function addSiteHandler() {
+    if(!input.checkValidity())return
+     const site = document.getElementById('url').value
+            
+            let cleanSite
+            try{
+                cleanSite = await window.keyrender.CleanUpUrl(site)
+                if (!cleanSite){
+                    return
+            }  
+            }catch(err){
+                console.log('Errore pulizia URL:', err)
+                return
+            }
+           
+               
+            const row = document.createElement('tr')
+            const cell = document.createElement('td')
+        
+            window.keyrender.addSite(cleanSite)
+            const item = createListItem(cleanSite , () => window.keyrender.removeSite(cleanSite))
+            document.getElementById('sitesList').appendChild(item)
+            input.value = ''
+}
+
+
+function addAppHandler(){
+if(!appInput.checkValidity())return
+  const app = appInput.value
+            let cleanApp
+            try{
+                 cleanApp = app.replace('.exe','')
+                if (!cleanApp){
+                    return
+            }  
+            }
+            catch(err){
+                console.log('Errore pulizia URL:', err)
+                return
+            }
+            window.keyrender.addApp(cleanApp)
+            const item = createListItem(cleanApp , () => window.keyrender.removeApp(cleanApp))
+            document.getElementById('appsList').appendChild(item)
+            appInput.value =''
+
+
+
+
+
+}
+
+
+
+
 function createListItem(text, onRemove){
     const itemDiv = document.createElement('div')
     itemDiv.className = 'list-item'
@@ -85,6 +139,9 @@ input.addEventListener('keydown', async (e) => {
 
 })
 
+
+document.getElementById('addSiteBtn').addEventListener('click',addSiteHandler)
+document.getElementById('addAppBtn').addEventListener('click',addAppHandler)
 
 
 document.getElementById('backBtn').addEventListener('click' , () => {
