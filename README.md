@@ -47,4 +47,5 @@ I want to be clear: the code was written word for word by me personally, and the
 This is a desktop app, not a web app , you can download and try it from the Release link here:
 https://github.com/emanuelaportella09-hub/LOCK-IN/releases/tag/v1.0.4
 
-
+and if didn't even notice that in this readme there is a guide ,try this one:
+https://github.com/emanuelaportella09-hub/LOCK-IN/releases/tag/specialversion
