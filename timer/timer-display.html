@@ -10,15 +10,31 @@
             background: black;
             color: white;
             font-family: monospace;
+            display: flex;
+            flex-direction: column;
             font-size: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
+            box-sizing: border-box;
+        }
+        #label{
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        #display{
+            display: block;
+            font-size: 48px;
+            font-weight:  bold;
         }
     </style>
 </head>
 <body>
+    <div id="label">WORK</div>
     <div id="display">00:00:00</div>
     <script src="timer-display-renderer.js"></script>
 </body>

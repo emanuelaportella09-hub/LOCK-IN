@@ -1,0 +1,30 @@
+HOW TO USE THE POMODORO TIMER:
+
+My Pomodoro Timer is like no other because it is dynamic.
+
+THE TIME YOU ENTER IS ONLY WORK
+When you SET the timer, you're telling the app how much time you are going to work actively.
+The pauses are not included in that number because it's automatic.
+So your session overall will last more than the time typed in.
+
+HOW ITS BLOCKS OF WORK ARE CALCULATED
+
+The system always searches for a way to make you work naturally,
+creating 25-minute blocks of work, based on the time you enter.
+
+Some ex:
+
+If you set 10 minutes: You will do a single continuous 10-minute block.
+
+If you set 60 minutes: You will do 2 perfect 30-minute blocks.
+
+If you set 100 minutes: You will do 4 exact 25-minute blocks.
+
+THE RULES OF BREAKS
+The timer has specific work and rest rules:
+
+Short Pause: it is inserted between one block of work and another so you can rest.
+Long Pause: it is inserted at the end of the last work block. When this ends, your session is completed.
+
+PS.
+When you are in a break the app lock will stop working so you can relax if you want.

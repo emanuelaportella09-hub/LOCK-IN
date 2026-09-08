@@ -80,6 +80,30 @@
             height: 60px;
             width: auto;
       }
+      .tooltip{
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+        cursor: pointer;
+      }
+      .tooltiptext{
+        visibility: hidden;
+        width: 130px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        /*right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: 8px;*/
+      }
+      .tooltip:hover .tooltiptext{
+        visibility: visible;
+      }
 
 
 
@@ -95,8 +119,12 @@
     <div class="column">
       <h2>Sites</h2>
       <form>
+         <div class="tooltip">❓
+          <span class="tooltiptext">
+            PLEASE DON'T ENTER WEIRD SITES LIKE MY GITHUB PAGE IT WON'T WORK PLEASE TRY SITES LIKE YOUTUBE ,INSTRAGRAM BECAUSE THE APP WAS MEANT FOR THOSE SITES DON'T BRING IT TO IT'S LIMITS AND WATCH MY VIDEO ON YOUTUBE
+          </span>
+        </div>
         <label for="url">Enter an URL:</label>
-        <label class="sub-label">(press the enter key to enter a site)</label>
         <div class="btn">
         <input
             type="url"
@@ -107,16 +135,21 @@
             size="30"
             required />
         <button type="button" id="addSiteBtn">Add Site</button>
-        </div>
-        <label for="url">PLEASE DON'T ENTER WEIRD SITES LIKE MY GITHUB PAGE IT WON'T WORK PLEASE TRY SITE LIKE YOUTUBE ,INSTRAGRAM BECAUSE THE APP WAS MEANT FOR THOSE SITES DON'T BRING IT TO IT'S LIMITS AND WATCH MY VIDEO</label>
+       
+      </div>
+        
       </form>
       <div id="sitesList"></div>
     </div>
     <div class="column">
       <h2>Applications</h2>
       <form>
+         <div class="tooltip">❓
+        <span class="tooltiptext">
+          IF UNSURE OF THE PROCESS GO TO TASK MANAGER AND SEE THE PROCESS NAME AND WATCH MY VIDEO IS ON MY README PAGE OF THE PROJECT
+        </span>
+        </div>
         <label for="app">Write the name of the process:</label>
-        <label class="sub-label">(press the enter key to enter an app)</label>
         <div class="btn">
         <input 
           type="text" 
@@ -127,8 +160,7 @@
           size="30"
           required/>
         <button type="button" id="addAppBtn">Add App</button>
-        </div>
-        <label for="app">IF UNSURE OF THE PROCESS GO TO TASK MANAGER AND SEE THE PROCESS NAME AND WATCH MY VIDEO IS ON MY README PAGE OF THE PROJECT</label>
+       
       </form>
       <div id="appsList"></div>
     </div>
