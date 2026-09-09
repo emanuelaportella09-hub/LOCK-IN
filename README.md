@@ -50,6 +50,10 @@ download only the latest release
   
   Click-through overlay : doesn't block interaction with other windows, it only serves as a visual reminder
 
+  <img width="1830" height="1070" alt="Screenshot 2026-09-09 200100" src="https://github.com/user-attachments/assets/b48a3560-bbd9-4b5d-9084-19700c8200b7" />
+
+<img width="588" height="197" alt="Screenshot 2026-09-09 200004" src="https://github.com/user-attachments/assets/451c3b83-544a-403a-90b3-c460b52051e4" />
+
   ----------------------------------------------------------
 
 **-Timer**
@@ -67,9 +71,13 @@ download only the latest release
   "Session completed" screen once the set time runs out
   
   Timer settings (mode and duration) are saved and remembered between sessions
-<img width="565" height="1079" alt="Screenshot 2026-09-09 102927" src="https://github.com/user-attachments/assets/be82a10d-015d-4a2b-8001-7bcbd6081294" />
 
-  
+
+  <img width="462" height="557" alt="Screenshot 2026-09-09 195958" src="https://github.com/user-attachments/assets/673f0c67-782b-4e5f-a3ff-df87063f8431" />
+
+<img width="1678" height="846" alt="Screenshot 2026-09-09 200308" src="https://github.com/user-attachments/assets/7abdf28a-096b-4f6f-971e-19786d4dce81" />
+<img width="317" height="138" alt="Screenshot 2026-09-09 200209" src="https://github.com/user-attachments/assets/5685ccfe-dac3-471d-b989-cc9bd6d734b0" />
+<img width="323" height="141" alt="Screenshot 2026-09-09 200143" src="https://github.com/user-attachments/assets/7ef9e271-572f-47ac-81a1-a8e4f262c53e" />
 
   ----------------------------------------------------------
 
