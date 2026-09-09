@@ -119,7 +119,7 @@ ipcMain.on('start-session' , async () => {
   Bstate = false
   currentStepType = 'work'
 
-  // Intervallo controllo blacklist
+  
   currentIntervalId = setInterval(() => {
 
     if(currentStepType === 'break'){
@@ -199,13 +199,13 @@ ipcMain.on('start-session' , async () => {
       const workBlockDuration = Math.floor(timerSeconds / numBlocks)
 
       for(let i = 1; i <= numBlocks; i++){
-        // Corretto: backtick per le variabili
+        
         step.push({ type: 'work', duration: workBlockDuration, label: `Work ${i}/${numBlocks}` })
         
         if(i < numBlocks){
           step.push({ type: 'break', duration: pomodoroShort, label: 'Short Pause' })
         } else {
-          // Corretto: type invece di step
+          
           step.push({ type: 'break', duration: pomodoroLong, label: 'Long Pause' })
         }
       }

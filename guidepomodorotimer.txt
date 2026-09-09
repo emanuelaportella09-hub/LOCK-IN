@@ -1,30 +1,79 @@
+==============================
 HOW TO USE THE POMODORO TIMER:
+==============================
 
 My Pomodoro Timer is like no other because it is dynamic.
 
-THE TIME YOU ENTER IS ONLY WORK
-When you SET the timer, you're telling the app how much time you are going to work actively.
-The pauses are not included in that number because it's automatic.
-So your session overall will last more than the time typed in.
+-------------------------------------------
+1) YOU ONLY ENTER THE WORK TIME
+-------------------------------------------
 
-HOW ITS BLOCKS OF WORK ARE CALCULATED
+When you enter a number of minutes into the timer using the Timer tab,
+that number represents ONLY the time you will spend working.
+When you SET the timer, you're telling the app how much time you are
+going to work actively. The pauses are not included in that number
+because they are automatic. So your session overall will last longer
+than the time typed in.
 
-The system always searches for a way to make you work naturally,
-creating 25-minute blocks of work, based on the time you enter.
+-------------------------------------------
+2) HOW YOUR WORK MINUTES ARE DIVIDED
+-------------------------------------------
 
-Some ex:
+The program takes the time you entered and automatically divides it
+into small blocks of about 25 minutes each.
 
-If you set 10 minutes: You will do a single continuous 10-minute block.
+The system always looks for a way to make you work naturally,
+creating 25-minute blocks of work based on the time you enter.
 
-If you set 60 minutes: You will do 2 perfect 30-minute blocks.
+Some examples:
 
-If you set 100 minutes: You will do 4 exact 25-minute blocks.
+If you set 10 minutes: you will do a single continuous 10-minute block.
 
-THE RULES OF BREAKS
+If you set 60 minutes: you will do 2 perfect 30-minute blocks.
+
+If you set 100 minutes: you will do 4 exact 25-minute blocks.
+
+---------------------------------------------
+3) THE BREAKS
+---------------------------------------------
+
 The timer has specific work and rest rules:
 
-Short Pause: it is inserted between one block of work and another so you can rest.
-Long Pause: it is inserted at the end of the last work block. When this ends, your session is completed.
+Short Pause: it is inserted between one block of work and the next
+so you can rest.
 
-PS.
-When you are in a break the app lock will stop working so you can relax if you want.
+Long Pause: it is inserted at the end of the last work block. When
+it ends, your session is completed.
+
+When you reach a break, the blacklisted sites become accessible
+again, without the LOCK IN screen appearing.
+
+----------------------------------------------
+4) YOUTUBE BREAK MUSIC FEATURE
+----------------------------------------------
+
+It's my personalized feature: when you reach a break, it will play
+some music of your choice for you.
+
+YOU DON'T NEED TO PRESS ENTER TO SAVE IT.
+
+YOU JUST ENTER THE YOUTUBE LINK.
+
+PLEASE DON'T USE VPNS MEANWHILE USING THIS FEATURE
+
+----------------------------------------------
+5) CHOOSE AN AUDIO FEATURE
+----------------------------------------------
+
+You need to choose an MP3 file of your choice.
+
+ONLY MP3 FILES.
+
+This means that when the 'LOCK IN' text appears, you can also have
+a sound cue to go along with it.
+
+here a playlist of sound:
+https://www.youtube.com/watch?v=J85jV37CsYE&list=PLWL3FzHaRRMkQqUhks8Y9l35rqY_kKCto
+
+here a site were you can download the mp3 version of those sound:
+https://notube.link/it/youtube-app-417
